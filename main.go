@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/zxgit/gin-blog-project/global"
-	"github.com/zxgit/gin-blog-project/internal/model"
+	"github.com/zxgit/gin-blog-project/internal/dao"
 	"github.com/zxgit/gin-blog-project/internal/routers"
 	"github.com/zxgit/gin-blog-project/pkg/logger"
 	"github.com/zxgit/gin-blog-project/pkg/setting"
@@ -23,8 +23,7 @@ func init()  {
 	if err!=nil{
 		log.Fatalf("init.setupLogger %v",err)
 	}
-	mod := model.Model{}
-	mod.DbInit()
+	dao.MysqlInit()
 }
 
 func setupSetting() error{
