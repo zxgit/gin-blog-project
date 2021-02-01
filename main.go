@@ -24,6 +24,7 @@ func init()  {
 		log.Fatalf("init.setupLogger %v",err)
 	}
 	dao.MysqlInit()
+	dao.InitRedisClient()
 }
 
 func setupSetting() error{

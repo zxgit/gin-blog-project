@@ -1,4 +1,4 @@
-package dao
+package article
 
 import (
 	"github.com/zxgit/gin-blog-project/internal/model"
