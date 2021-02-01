@@ -1,4 +1,4 @@
-package dao
+package dbClient
 
 import (
 	"fmt"
@@ -8,11 +8,11 @@ import (
 )
 
 var (
-	RedisClient *redis.Client
+	Redis *redis.Client
 )
 
 func InitRedisClient() {
-	RedisClient = redis.NewClient(&redis.Options{
+	Redis = redis.NewClient(&redis.Options{
 		//连接信息
 		Network:  "tcp",            //网络类型，tcp or unix，默认tcp
 		Addr:     "127.0.0.1:6379", //主机名+冒号+端口，默认localhost:6379

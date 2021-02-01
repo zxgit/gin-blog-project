@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/zxgit/gin-blog-project/global"
-	"github.com/zxgit/gin-blog-project/internal/dao"
+	"github.com/zxgit/gin-blog-project/internal/dbClient"
 	"github.com/zxgit/gin-blog-project/internal/routers"
 	"github.com/zxgit/gin-blog-project/pkg/logger"
 	"github.com/zxgit/gin-blog-project/pkg/setting"
@@ -23,8 +23,8 @@ func init()  {
 	if err!=nil{
 		log.Fatalf("init.setupLogger %v",err)
 	}
-	dao.MysqlInit()
-	dao.InitRedisClient()
+	dbClient.MysqlInit()
+	dbClient.InitRedisClient()
 }
 
 func setupSetting() error{
@@ -44,8 +44,6 @@ func setupSetting() error{
 	if err != nil {
 		return err
 	}
-	//这里打印出来了说明赋值是成功了的
-	fmt.Println(global.DatabaseSetting)
 	global.ServerSetting.ReadTimeout *=time.Second
 	global.ServerSetting.WriteTimeout *=time.Second
 	return nil
