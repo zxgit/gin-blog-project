@@ -17,7 +17,7 @@ Database:
   Username: root      #用户名
   Password: root      #密码
   Host: 127.0.0.1     #服务地址
-  DBName: go-blog     #数据库名称
+  DBName: blog-service #数据库名称
   TablePrefixx: blog_ #表前缀
   Charset : utf8      #编码
   ParseTime: True     #开启时间

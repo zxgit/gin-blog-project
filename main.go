@@ -25,6 +25,7 @@ func init()  {
 	}
 	dbClient.MysqlInit()
 	dbClient.InitRedisClient()
+
 }
 
 func setupSetting() error{
@@ -50,6 +51,7 @@ func setupSetting() error{
 }
 
 func main() {
+
 	fmt.Println("dbtype:",global.DatabaseSetting.DBType)
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
