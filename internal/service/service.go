@@ -1,4 +1,12 @@
 package service
-type srv struct {
 
+import (
+	"context"
+)
+
+type Service struct {
+	ctx context.Context
+}
+func New(ctx context.Context) Service {
+ return Service{ctx: ctx}
 }
