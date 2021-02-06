@@ -5,7 +5,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/zxgit/gin-blog-project/global"
 	"github.com/zxgit/gin-blog-project/internal/dbClient"
-	"github.com/zxgit/gin-blog-project/internal/middleware"
 	"github.com/zxgit/gin-blog-project/internal/routers"
 	"github.com/zxgit/gin-blog-project/pkg/logger"
 	"github.com/zxgit/gin-blog-project/pkg/setting"
@@ -55,7 +54,7 @@ func main() {
 	fmt.Println("dbtype:", global.DatabaseSetting.DBType)
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
-	router.Use(middleware.Translations())
+
 	s := &http.Server{
 		Addr:           ":" + global.ServerSetting.HttpPort,
 		Handler:        router,

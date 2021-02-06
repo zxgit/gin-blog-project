@@ -3,10 +3,11 @@ package dbClient
 import (
 	"fmt"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/zxgit/gin-blog-project/global"
 	"log"
 	"time"
-)
+	)
 
 var Db *gorm.DB
 
@@ -64,13 +65,10 @@ func updateTimeStampForCreateCallback(scope *gorm.Scope) {
 		nowTime := time.Now().Unix()
 		if createdAtField, ok := scope.FieldByName("CreatedAt"); ok {
 			if createdAtField.IsBlank {
-				fmt.Println(nowTime)
 				createdAtField.Set(nowTime)
-				fmt.Println(createdAtField.IsBlank)
 			}
 		}
 
-		fmt.Println(333333)
 		if updatedAtField, ok := scope.FieldByName("UpdatedAt"); ok {
 			if updatedAtField.IsBlank {
 				updatedAtField.Set(nowTime)

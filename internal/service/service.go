@@ -2,11 +2,13 @@ package service
 
 import (
 	"context"
+	"github.com/zxgit/gin-blog-project/internal/dao"
 )
 
 type Service struct {
-	ctx context.Context
+	Ctx context.Context
+	Dao *dao.Dao
 }
 func New(ctx context.Context) Service {
- return Service{ctx: ctx}
+ return Service{Ctx: ctx,Dao: dao.New()}
 }

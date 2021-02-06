@@ -10,9 +10,9 @@ import (
 )
 
 type Error struct {
-	code    int      `json:"code"`
-	msg     string   `json:"msg"`
-	details []string `json:"details"`
+	code  int      `json:"code"`
+	msg   string   `json:"msg"`
+	trace []string `json:"trace"`
 }
 
 var codes = map[int]string{}
@@ -37,14 +37,13 @@ func (e *Error) Msg() string {
 }
 
 func (e *Error) Details() []string {
-	return e.details
+	return e.trace
 }
-
 func (e *Error) WithDetails(details ...string) *Error {
 	newError := *e
-	newError.details = []string{}
+	newError.trace = []string{}
 	for _, d := range details {
-		newError.details = append(newError.details, d)
+		newError.trace = append(newError.trace, d)
 	}
 	return &newError
 }

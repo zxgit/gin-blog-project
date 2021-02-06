@@ -1,6 +1,8 @@
 package model
 
-import "fmt"
+import (
+	"github.com/zxgit/gin-blog-project/internal/dbClient"
+)
 
 type Article struct {
 	*Model
@@ -17,9 +19,11 @@ func (t Article) TableName() string {
 	return "blog_article"
 }
 
-func( t Article) AddArticle() bool{
-	fmt.Println(t)
-	db.Create(&t)
-	return  true
+func( t Article) AddArticle() (err error){
+	err = dbClient.Db.Create(&t).Error
+	if err!=nil {
+		return err
+	}
+	return  nil
 }
 

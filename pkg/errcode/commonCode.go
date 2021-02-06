@@ -9,5 +9,6 @@ var (
 	UnauthorizedTokenError    = NewErrow(10000004, "鉴权失败，token错误")
 	UnauthorizedTokenTimeout  = NewErrow(10000005, "鉴权失败，token超时")
 	UnauthorizedTokenGenerate = NewErrow(10000006, "鉴权失败，token生成失败")
-	TooManyRequests           = NewErrow(10000007, "q请求过多")
+	TooManyRequests           = NewErrow(10000007, "请求过多")
+	BusinessError             = NewErrow(10000008, "业务错误")
 )

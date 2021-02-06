@@ -31,10 +31,14 @@ func NewResponse(ctx *gin.Context) *Response {
  * @return
  **/
 func (r *Response)ToResponse(data interface{})  {
+	response :=gin.H{"code":errcode.Success.Code(),"msg":errcode.Success.Msg()}
 	if data==nil{
-		data = gin.H{}
+		response["data"] = gin.H{}
+	} else {
+		response["data"] = data
 	}
-	r.Ctx.JSON(http.StatusOK,data)
+	response["trace"] = []string{}
+	r.Ctx.JSON(http.StatusOK,response)
 }
 
 /**
@@ -56,10 +60,10 @@ func (r *Response)ToResponseList(list interface{},totalRows int)  {
 }
 
 func (r *Response)ToErrorResponse(err *errcode.Error)  {
-	response :=gin.H{"code":err.Code(),"msg":err.Msg()}
+	response :=gin.H{"code":err.Code(),"msg":err.Msg(),"data":gin.H{}}
 	details :=err.Details()
 	if len(details)>0 {
-		response["details"] = details
+		response["trace"] = details
 	}
 	r.Ctx.JSON(err.StatusCode(),response)
 }
