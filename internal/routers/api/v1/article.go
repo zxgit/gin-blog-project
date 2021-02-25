@@ -20,7 +20,23 @@ func (a Article) AddArticle() {
 
 
 func (a Article) Get(c *gin.Context)  {}
-func (a Article) List(c *gin.Context) {}
+func (a Article) List(c *gin.Context) {
+	response := app.NewResponse(c)
+	srv := service.New(c)
+	var listOpt service.GetArticleList
+	valid, errs := app.BindAndValid(c, &listOpt)
+	if !valid {
+		response.ToErrorResponse(errcode.InvalidParams.WithDetails(errs.Errors()...))
+		return
+	}
+	list,total,err := srv.GetArticleList(listOpt)
+	if err!=nil {
+		response.ToErrorResponse(errcode.BusinessError.WithDetails(err.Error()))
+		return
+	}
+	response.ToResponseList(list,total)
+	return
+}
 
 func (a Article) Create(c *gin.Context) {
 	srv := service.New(c)

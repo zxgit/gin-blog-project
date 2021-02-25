@@ -41,6 +41,8 @@ func MysqlInit() {
 	Db.LogMode(true)
 	//最大空闲连接数
 	Db.DB().SetMaxIdleConns(global.DatabaseSetting.MaxIdleConns)
+	//最大空闲时间
+	Db.DB().SetConnMaxLifetime(time.Duration(8*3600) * time.Second)
 	//最大打开连接数
 	Db.DB().SetMaxOpenConns(global.DatabaseSetting.MaxOpenleConns)
 	//创建更新前置时间戳
