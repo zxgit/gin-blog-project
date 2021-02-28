@@ -11,6 +11,11 @@ App:
   LogSavePath: storage/logs  #日志保存路径
   LogFileName: app           #日志文件名称
   LogFileExt: .log           #日志文件后缀
+Jwt:
+  #jwd配置
+  Secret: gostudy
+  Issuer: blog-service
+  Expire: 7200
 Database:
   #数据库配置相关
   DBType: mysql       #数据库类型

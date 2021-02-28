@@ -12,18 +12,27 @@ func NewRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+
+	//添加允许跨域
 	r.Use(Cors())
+	//添加验证国际化
 	r.Use(middleware.Translations())
-	article  := v1.NewArticle()
-	focus    := v1.NewFocus()
+	r.Use(middleware.AccessLog())
+	article := v1.NewArticle()
+	focus := v1.NewFocus()
 	category := v1.NewCategory()
 	site := v1.NewSite()
+	auth := v1.NewAuth()
+	//jwd授权
+	r.POST("/token", auth.GetToken) //获取token
 	apiV1 := r.Group("/api/v1")
 	{
+		//添加jwt token校验
+		apiV1.Use(middleware.Jwt())
 		//标签相关路由
-		apiV1.GET("/focus", focus.List)//焦点图列表
-		apiV1.GET("/categorys", category.List)//文章分类列表
-		apiV1.GET("/site", site.Info)//站点信息
+		apiV1.GET("/focus", focus.List)        //焦点图列表
+		apiV1.GET("/categorys", category.List) //文章分类列表
+		apiV1.GET("/site", site.Info)          //站点信息
 
 		//文章相关路由
 		apiV1.POST("/articles", article.Create)

@@ -49,16 +49,17 @@ func (r *Response) ToResponse(data interface{}) {
  * @return
  **/
 func (r *Response) ToResponseList(list interface{}, totalRows int) {
-	 data := make(map[string]interface{})
-	 data["list"]  = list
-	 data["pager"] = Pager{
-			Page:      GetPage(r.Ctx),
-			PageSize:  GetPageSize(r.Ctx),
-			TotalRows: totalRows,
-	 }
+	data := make(map[string]interface{})
+	data["list"] = list
+	data["pager"] = Pager{
+		Page:      GetPage(r.Ctx),
+		PageSize:  GetPageSize(r.Ctx),
+		TotalRows: totalRows,
+	}
 	r.Ctx.JSON(http.StatusOK, gin.H{
-		"code":errcode.Success.Code(),
-		"data":data,
+		"code":  errcode.Success.Code(),
+		"data":  data,
+		"trace": []string{},
 	})
 }
 

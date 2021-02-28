@@ -1,18 +1,2 @@
-2021/01/24 16:13:55 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611476035605368000}
-2021/01/24 16:13:55 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611476035605368000}
-2021/01/24 17:44:30 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611481470109884600}
-2021/01/24 17:44:30 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611481470109884600}
-2021/01/24 17:47:52 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611481672921362800}
-2021/01/24 17:47:52 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611481672921362800}
-2021/01/24 17:58:47 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611482327975665000}
-2021/01/24 17:58:47 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611482327975665000}
-2021/01/24 18:11:01 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611483061514030400}
-2021/01/24 18:11:01 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611483061514030400}
-2021/01/24 18:12:17 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611483137222966700}
-2021/01/24 18:12:17 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611483137222966700}
-2021/01/24 18:12:40 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611483160640761800}
-2021/01/24 18:12:40 {"callers":["D:/gowww/gin-blog-project/main.go: 20 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611483160640761800}
-2021/01/24 18:21:48 {"callers":["D:/gowww/gin-blog-project/main.go: 21 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611483708701306000}
-2021/01/24 18:21:48 {"callers":["D:/gowww/gin-blog-project/main.go: 21 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611483708701306000}
-2021/01/24 19:03:44 {"callers":["D:/gowww/gin-blog-project/main.go: 21 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611486224769255600}
-2021/01/24 19:03:44 {"callers":["D:/gowww/gin-blog-project/main.go: 21 main.init.0"],"level":"info","message":"zx:test/zxSrc","time":1611486224769255600}
+2021/02/28 22:00:18 {"callers":["D:/gowww/gin-blog-project/main.go: 22 main.init.0"],"level":"info","message":"access log method: POST ,action: /token status_code: 400, begin_time: 1614520818,end_time: 1614520818","request":"appKey=1111","response":"{\"code\":10000001,\"data\":{},\"msg\":\"入参错误\",\"trace\":[\"AppKey为必填字段\",\"AppSecret为必填字段\"]}","time":1614520818287855000,"trace":[]}
+2021/02/28 22:00:18 {"callers":["D:/gowww/gin-blog-project/main.go: 22 main.init.0"],"level":"info","message":"access log method: POST ,action: /token status_code: 400, begin_time: 1614520818,end_time: 1614520818","request":"appKey=1111","response":"{\"code\":10000001,\"data\":{},\"msg\":\"入参错误\",\"trace\":[\"AppKey为必填字段\",\"AppSecret为必填字段\"]}","time":1614520818287855000,"trace":[]}

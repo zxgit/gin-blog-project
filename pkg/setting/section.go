@@ -30,6 +30,12 @@ type DatabaseSettingS struct {
 	MaxOpenleConns int
 }
 
+type JwtSettingS struct {
+	Secret string
+	Issuer string
+	Expire time.Duration
+}
+
 func (s *Setting) ReadSection(k string, v interface{}) error {
 	err := s.vp.UnmarshalKey(k, v)
 	if err != nil {
