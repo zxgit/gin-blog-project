@@ -82,7 +82,7 @@ func (l *Logger) WithCaller(skip int) *Logger {
 	return ll
 }
 
-func (l *Logger) WithCallersFrames(skip int) *Logger {
+func (l *Logger) WithCallersFrames() *Logger {
 	maxCallerDepth := 25
 	minCallerDepth := 1
 	callers := []string{}

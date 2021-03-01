@@ -11,6 +11,7 @@ App:
   LogSavePath: storage/logs  #日志保存路径
   LogFileName: app           #日志文件名称
   LogFileExt: .log           #日志文件后缀
+  Timeout: 60                #接口请求超时时间
 Jwt:
   #jwd配置
   Secret: gostudy

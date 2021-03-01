@@ -15,6 +15,7 @@ type AppSettingS struct {
 	LogSavePath     string
 	LogFileName     string
 	LogFileExt      string
+	Timeout         time.Duration
 }
 
 type DatabaseSettingS struct {

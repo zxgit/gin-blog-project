@@ -3,6 +3,7 @@ package routers
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/zxgit/gin-blog-project/global"
 	"github.com/zxgit/gin-blog-project/internal/middleware"
 	v1 "github.com/zxgit/gin-blog-project/internal/routers/api/v1"
 	"github.com/zxgit/gin-blog-project/pkg/limiter"
@@ -23,9 +24,13 @@ var methodLimiters = limiter.NewMethodLimiter().AddBucket(
 func NewRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
-	r.Use(gin.Recovery())
+	r.Use(middleware.Recovery())
+	r.Use(middleware.Recovery())
 	//注册令牌桶
 	r.Use(middleware.RateLimiter(methodLimiters))
+
+	//统一超时60秒
+	r.Use(middleware.ContextTimeout(global.AppSetting.Timeout))
 
 	//添加允许跨域
 	r.Use(Cors())
