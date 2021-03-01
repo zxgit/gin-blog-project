@@ -5,13 +5,27 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/zxgit/gin-blog-project/internal/middleware"
 	v1 "github.com/zxgit/gin-blog-project/internal/routers/api/v1"
+	"github.com/zxgit/gin-blog-project/pkg/limiter"
 	"net/http"
+	"time"
+)
+
+//对鉴权方法设置令牌桶
+var methodLimiters = limiter.NewMethodLimiter().AddBucket(
+	limiter.LimiterBucketRule{
+		Key:          "/token",
+		FillInterval: time.Second,
+		Capacity:     10,
+		Quantum:      10,
+	},
 )
 
 func NewRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+	//注册令牌桶
+	r.Use(middleware.RateLimiter(methodLimiters))
 
 	//添加允许跨域
 	r.Use(Cors())
